@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  /* Using your clean white/black theme */
+  --background: #ffffff;
+  --foreground: #111827; /* gray-900 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Forcing the font to Mono globally */
+  --font-sans: var(--font-geist-mono), ui-monospace, monospace;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Since your portfolio is a "Retro Sketch" look, 
+   I recommend disabling dark mode for now to keep the "Paper" feel,
+   or strictly controlling it like this:
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff; /* Keep it light for the sketch aesthetic */
+    --foreground: #111827;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* This ensures your retro font is used everywhere */
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Custom selection to match your buttons */
+::selection {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+/* High-contrast focus states for accessibility */
+:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 2px;
+}
